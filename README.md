@@ -1,14 +1,27 @@
-# EfficientStringMatching
+### EfficientStringMatching
 
-EfficientStringMatching is a tool for efficient string matching, aiming to improve the performance of string matching from 10 hours using regular expressions to processing 1,000 records per second. This tool is based on the Trie data structure, leveraging the advantages of the prefix tree to achieve fast string matching.
+EfficientStringMatching is a tool aimed at enhancing the performance of string matching operations, reducing the processing time from 10 hours using regular expressions to a rate of 1,000 records per second. This tool offers two versions: a pure JavaScript version and a WebAssembly (WASM) version.
 
-It can be used in various applications, including text processing, keyword filtering, sensitive word detection, and more. By constructing the keywords into a Trie tree, it enables fast matching of multiple keywords in a given text, thereby improving matching efficiency and accuracy.
+The tool utilizes a Trie data structure along with optimized algorithms to achieve efficient string matching. By leveraging the advantages of the Trie tree, it enables rapid matching of multiple keywords within a given text, resulting in improved matching efficiency and reduced memory consumption.
 
-## Features
+#### Features
 
-- Efficient string matching: Implemented based on the Trie tree for fast string matching.
-- Flexible keyword management: Supports dynamic addition, deletion, and updating of keywords, allowing flexible adjustment of the keyword collection.
-- Multiple use cases: Suitable for various scenarios such as text processing, keyword filtering, sensitive word detection, etc., providing flexible interfaces and usage methods.
+- Two Versions: The tool provides two versions - a pure JavaScript version and a WebAssembly (WASM) version, allowing users to choose the implementation that best suits their needs.
+- Optimized Trie Algorithm: The tool employs a Trie data structure along with optimized algorithms, resulting in reduced memory usage and improved performance.
+- Flexible Keyword Management: It supports dynamic addition, deletion, and updating of keywords, providing flexibility in managing the keyword collection.
+- Versatile Use Cases: The tool finds applications in various scenarios such as text processing, keyword filtering, sensitive word detection, and more. It offers flexible interfaces and usage methods to cater to different use cases.
+
+#### WebAssembly (WASM) Compilation Instructions
+
+To compile the WebAssembly version of EfficientStringMatching, follow these instructions:
+
+1. Install the required dependencies and tools for compiling WebAssembly modules.
+2. Run the appropriate compilation command based on your target platform and preferred configuration.
+3. Once the WebAssembly module is compiled, integrate it into your JavaScript application and utilize the provided APIs for efficient string matching operations.
+
+```
+emcc trie.cpp -o trie.js -s EXPORTED_FUNCTIONS="['_createTrie', '_destroyTrie', '_trieInsert', '_trieSearch', '_trieSearchPrefix', '_freeStringArray']" -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]' -s MODULARIZE=1 -s 'EXPORT_NAME="createTrieModule"'
+```
 
 ## Usage
 
@@ -30,12 +43,3 @@ node index.js
 The tool will output the matched strings to the console.
 
 ---
-
-EfficientStringMatching是一个用于高效匹配字符串的工具，旨在将字符串匹配性能从使用正则表达式匹配的10小时提高到每秒处理1千条数据。该工具基于Trie数据结构实现，利用前缀树的优势，通过快速索引和查找，实现快速的字符串匹配。
-
-该工具可以用于各种应用场景，包括文本处理、关键词过滤、敏感词检测等。通过将关键词构建成Trie树的形式，可以快速地在给定的文本中进行多个关键词的匹配，提高匹配效率和准确性。
-
-主要功能特点:
-- 高效的字符串匹配：基于Trie树实现，提供快速的字符串匹配能力。
-- 灵活的关键词管理：支持动态添加、删除和更新关键词，可以根据需求灵活调整关键词集合。
-- 多场景应用：可用于文本处理、关键词过滤、敏感词检测等多种场景，提供灵活的接口和使用方式。
