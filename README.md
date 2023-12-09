@@ -173,7 +173,7 @@ Of course, I've also copied my explanation at the time here for lazy people (you
 
 So how does a trie tree implement keyword matching? Here is an illustration:
 
-![img](./assets/0jsxtcpowe.png)
+![img](https://ask.qcloudimg.com/http-save/yehe-1148723/0jsxtcpowe.png)
 
 Key points:
 
