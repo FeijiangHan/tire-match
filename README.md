@@ -8,6 +8,16 @@ A few days ago at work, I encountered the following problem:
 
 This article fully introduces my implementation approach, showing how I optimized a task that took 10 hours to run to under 10 minutes. Although the implementation language is PHP, this article focuses more on the concepts, which should be helpful to everyone.
 
+
+| Method | Key Technique | Difficulty Level | Performance Test Results | Pros | Cons |
+|-|-|-|-|-|-|
+| Original - Grep | Using the Linux command grep to count keyword occurrences | Easy | Took 6 hours on an old machine to process | Simple to implement directly | Low efficiency, not suitable for real-time needs; security vulnerabilities |
+| Evolution - Regex | Matching keywords with PHP regex | Medium | Took nearly 10 hours on a new machine to process 1,000 records | Suitable for matching multiple keywords in real-time | Low efficiency decreases linearly with more keywords; length limitation on patterns |  
+| Awakening - Word Segmentation | Splitting strings into all possible word combinations | Hard | No performance test implemented | Theoretically high efficiency of O(1) with HASH lookup | High difficulty; exploding number of words; hard to handle Chinese text |
+| Ultimate - Trie Tree | Highly efficient matching with prefix tree structure | Hard | Took 3 seconds on a new machine to process 1,000 records; 1 second in Java | Efficiency near O(K) without drastic decrease with more data | High implementation difficulty with complex data structures| 
+| Alternative Approach - Multiprocessing | Multiple processes stats different log portions | Medium | Took 4 minutes for 10 processes to complete stats | Fully utilizes multi-core CPU power | Data partitioning may not be evenly balanced, causing bottlenecks|
+
+
 ## Original - grep
 
 ### Design
