@@ -4,7 +4,7 @@
 
 A few days ago at work, I encountered the following problem:
 
-> There are 600,000 short message log records, each around 50 characters, and 50,000 keywords, 2-8 characters in length, mostly Chinese. The task is to extract all keywords contained in the 600,000 records and count the number of hits for each keyword.
+> There are 60,000,000 short message log records, each around 50 characters, and 5,000,000 keywords, 2-8 characters in length, mostly Chinese. The task is to extract all keywords contained in the 60,000,000 records and count the number of hits for each keyword.
 
 This article fully introduces my implementation approach, showing how I optimized a task that took 10 hours to run to under 10 minutes. Although the implementation language is PHP, this article focuses more on the concepts, which should be helpful to everyone.
 
